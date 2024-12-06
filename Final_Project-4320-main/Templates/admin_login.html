@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <h1>Admin Login</h1>
+    <form action="/admin_login" method="post"> <!-- POST request for admin login -->
+        <!-- Admin login credentials -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button> <!-- Login button -->
+    </form>
+    <p><a href="/">Return to Main Menu</a></p>
+</body>
+</html>
