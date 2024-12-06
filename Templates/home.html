@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- If you have a CSS file -->
+</head>
+<body>
+    <h1>Main Menu</h1>
+    <form onsubmit="return handleSelection();">
+        <label for="selection">Choose an action:</label>
+        <select id="selection" name="selection" required>
+            <option value="">--Please choose an option--</option>
+            <option value="admin_login">Log In as Admin</option>
+            <option value="reserve_seat">Reserve a Seat</option>
+        </select>
+        <br><br>
+        <button type="submit">Go</button>
+    </form>
+    <script>
+        function handleSelection() {
+            const choice = document.getElementById('selection').value;
+            if (choice === "admin_login") {
+                window.location.href = "{{ url_for('admin_login') }}";
+            } else if (choice === "reserve_seat") {
+                window.location.href = "/reserve";
+            }
+            
+            return false;
+        }
+    </script>
+</body>
+</html> <!-- we need to replace the /reserve with the reserve route-->

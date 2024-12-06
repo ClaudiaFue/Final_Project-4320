@@ -20,7 +20,8 @@ def check_credentials(username, password):
 
 @app.route("/")
 def home():
-    return "<h>This is the Home Page, to be improved upon</h><a href='/admin_login'>Go to Admin Login</a>"
+    return render_template("home.html")
+
 
 @app.route("/admin_login", methods=["GET", "POST"])
 def admin_login():
