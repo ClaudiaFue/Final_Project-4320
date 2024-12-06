@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="/static/style.css"> <!-- Link to CSS -->
+    <style>
+    .flashed-messages {
+        list-style-type: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+
+    .flashed-messages .error {
+        color: red;
+    }
+    </style>
 </head>
 <body>
     <h1>Admin Login</h1>
     <form action="/admin_login" method="post"> <!-- POST request for admin login -->
         <!-- Admin login credentials -->
+        {% if get_flashed_messages() %}
+        <ul class="flashed-messages">
+            {% for message in get_flashed_messages() %}
+                <li class="error">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br>

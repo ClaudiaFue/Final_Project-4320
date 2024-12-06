@@ -4,39 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css"> <!-- Link to CSS -->
+    <style>
+        .matrix {
+            font-family: monospace;
+            font-size: 10px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+        .error {
+            color: red; /* Make error messages red */
+        }
+    </style>
 </head>
 <body>
     <h1>Admin Dashboard</h1>
-    <h2>Seating Chart</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Row</th>
-                <th>Col 1</th>
-                <th>Col 2</th>
-                <th>Col 3</th>
-                <th>Col 4</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in range(12) %} <!-- Loop through each row -->
-            <tr>
-                <td>{{ row + 1 }}</td> <!-- Display row number -->
-                {% for col in range(4) %} <!-- Loop through each column -->
-                <td>
-                    {% if seating[row][col] %} <!-- Check if seat is reserved -->
-                    Reserved by {{ seating[row][col] }} <!-- Show who reserved -->
-                    {% else %}
-                    Available <!-- Show available seats -->
-                    {% endif %}
-                </td>
-                {% endfor %}
-            </tr>
+    <div>
+        <h2>Seating Chart</h2>
+        <p>X = Reserved seat; O = Available seat</p>
+        <div class="matrix">
+            {% for row in seating_chart %}
+                ['{{ row[0] }}', '{{ row[1] }}', '{{ row[2] }}', '{{ row[3] }}']<br>
             {% endfor %}
-        </tbody>
-    </table>
-    <h2>Total Sales: ${{ total_sales }}</h2> <!-- Show total sales -->
+        </div>
+    </div>
+    <div>
+        <p class="summary">Total Sales: ${{ sales }}</p>
+    </div>
     <p><a href="/">Return to Main Menu</a></p>
 </body>
 </html>
