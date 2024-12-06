@@ -5,11 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserve a Seat</title>
     <style>
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+        }
+        h1 {
+            font: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        div {
+            width: 500px;
+            background-color: lightgray;
+            padding: 5px;
+            border: 1px solid #090909;
+            
+        }
+        .div2 {
+            width: 250px;
+            background-color: lightgray;
+            padding: 5px;
+            border: 1px solid #090909;
+            align-self: flex-start;
+        }
         .matrix {
+            width: 250px;
             font-family: monospace;
             font-size: 10px;
             margin-bottom: 2px;
             margin-top: 2px;
+            align-self: flex-start;
         }
         .error {
             color: red; /* Make error messages red */
@@ -17,44 +49,49 @@
     </style>
 </head>
 <body>
-    <h1>Reserve a Seat</h1>
-    {% if message %}
-        <p class="{% if 'Invalid' in message.lower() or 'already' in message.lower() %}error{% endif %}">{{ message|safe }}</p>   
-    {% endif %}
+    <div class="menu">
+        <p><a href="/">Main Menu</a></p>  
+    </div>
+    
     <div>
-        <h2>Seating Chart</h2>
-        <p>X = Reserved seat: O = Avaliable seat </p>
-    </div>
-    <div class="matrix">
-        {% for row in seating_chart %}
-            ['{{ row[0] }}', '{{ row[1] }}', '{{ row[2] }}', '{{ row[3] }}']<br>
-        {% endfor %}
-    </div>
-    <form action="/reserve" method="post"> <!-- POST request to handle reservation -->
-        <!-- User input for reservation -->
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-        <br>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-        <br>
-        <label for="seat_row">Seat Row:</label>
-        <select id="seat_row" name="seat_row" required>
-            {% for i in range(1, 13) %}
-                <option value="{{ i }}">{{ i }}</option>
+        <h1>Reserve a Seat</h1>
+        {% if message %}
+            <p class="{% if 'Invalid' in message.lower() or 'already' in message.lower() %}error{% endif %}">{{ message|safe }}</p>   
+        {% endif %}
+        <div class="div2">
+            <h2>Seating Chart</h2>
+            <p>X = Reserved seat: O = Avaliable seat </p>
+        </div>
+        <div class="matrix">
+            {% for row in seating_chart %}
+                ['{{ row[0] }}', '{{ row[1] }}', '{{ row[2] }}', '{{ row[3] }}']<br>
             {% endfor %}
-        </select>
-        <br>
-        <label for="seat_column">Seat Column:</label>
-        <select id="seat_column" name="seat_column" required>
-            {% for i in range(1, 5) %}
-                <option value="{{ i }}">{{ i }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <br>
-        <button type="submit">Reserve</button> <!-- Submit the reservation -->
-    </form>
-    <p><a href="/">Return to Main Menu</a></p>
+        </div>
+        <form action="/reserve" method="post"> <!-- POST request to handle reservation -->
+            <!-- User input for reservation -->
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+            <br>
+            <label for="seat_row">Seat Row:</label>
+            <select id="seat_row" name="seat_row" required>
+                {% for i in range(1, 13) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="seat_column">Seat Column:</label>
+            <select id="seat_column" name="seat_column" required>
+                {% for i in range(1, 5) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <button type="submit">Reserve</button> <!-- Submit the reservation -->
+        </form>
+    </div>
 </body>
 </html>

@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    
     <style>
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+        }
+        h1 {
+            font: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+  
+        .container {
+            width: 500px;
+            background-color: lightgray;
+            padding: 5px;
+            border: 1px solid #090909;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .matrix {
             font-family: monospace;
             font-size: 10px;
@@ -14,22 +40,32 @@
         .error {
             color: red; /* Make error messages red */
         }
+        .chart 
+        {
+            align-self: flex-start;
+        }
+            
+        
     </style>
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
-    <div>
-        <h2>Seating Chart</h2>
-        <p>X = Reserved seat; O = Available seat</p>
-        <div class="matrix">
-            {% for row in seating_chart %}
-                ['{{ row[0] }}', '{{ row[1] }}', '{{ row[2] }}', '{{ row[3] }}']<br>
-            {% endfor %}
+    <div class="menu">
+        <p><a href="/">Main Menu</a></p>  
+    </div>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <div class="chart">
+            <h2>Seating Chart</h2>
+            <p>X = Reserved seat; O = Available seat</p>
+            <div class="matrix">
+                {% for row in seating_chart %}
+                    ['{{ row[0] }}', '{{ row[1] }}', '{{ row[2] }}', '{{ row[3] }}']<br>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="chart">
+            <p class="summary">Total Sales: ${{ sales }}</p>
         </div>
     </div>
-    <div>
-        <p class="summary">Total Sales: ${{ sales }}</p>
-    </div>
-    <p><a href="/">Return to Main Menu</a></p>
 </body>
 </html>

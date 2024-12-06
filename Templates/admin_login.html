@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <style>
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+        }
+        h1 {
+            font: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            width: 500px;
+            background-color: lightgray;
+            padding: 5px;
+            border: 1px solid #090909;
+        }
     .flashed-messages {
         list-style-type: none;
         padding: 0;
@@ -17,24 +38,30 @@
     </style>
 </head>
 <body>
-    <h1>Admin Login</h1>
-    <form action="/admin_login" method="post"> <!-- POST request for admin login -->
-        <!-- Admin login credentials -->
-        {% if get_flashed_messages() %}
-        <ul class="flashed-messages">
-            {% for message in get_flashed_messages() %}
-                <li class="error">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button> <!-- Login button -->
-    </form>
-    <p><a href="/">Return to Main Menu</a></p>
+    <div class="menu">
+        <p><a href="/">Main Menu</a></p>  
+    </div>
+    <div>
+        <h1>Admin Login</h1>
+        <form action="/admin_login" method="post"> <!-- POST request for admin login -->
+            <!-- Admin login credentials -->
+            {% if get_flashed_messages() %}
+            <ul class="flashed-messages">
+                {% for message in get_flashed_messages() %}
+                    <li class="error">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Login</button> <!-- Login button -->
+        </form>    
+    </div>
+    
+
 </body>
 </html>

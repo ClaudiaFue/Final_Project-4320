@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Menu</title>
-    <link rel="stylesheet" href="/static/style.css"> <!-- If you have a CSS file -->
+    <style>
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+        }
+        h1 {
+            font: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            width: 500px;
+            background-color: lightgray;
+            padding: 5px;
+            border: 1px solid #090909;
+        }
+    </style>
 </head>
 <body>
-    <h1>Main Menu</h1>
+    <div class="menu">
+        <p><a href="/">Main Menu</a></p>  
+    </div>
+    <div>
+       <h1>IT-4320 Trip Reservation System</h1>
+       <p>Welcome to the IT-4320 Reservation System. Use the select box to choose whether to make a reservation or log in as administrator.</p>
     <form onsubmit="return handleSelection();">
         <label for="selection">Choose an action:</label>
         <select id="selection" name="selection" required>
@@ -17,7 +44,8 @@
         </select>
         <br><br>
         <button type="submit">Go</button>
-    </form>
+    </form> 
+    </div>
     <script>
         function handleSelection() {
             const choice = document.getElementById('selection').value;
@@ -31,4 +59,4 @@
         }
     </script>
 </body>
-</html> <!-- we need to replace the /reserve with the reserve route-->
+</html>
