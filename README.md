@@ -17,19 +17,19 @@ Create a menu-driven reservation system using Flask Python, or another language 
 
 ### Your application will need to have the following functionality:
 
-A. Create a seating chart and load the initial reservations
-B. Display the main menu that asks the user whether they want to reserve a seat or log in as an administrator
-C. If the user selects the admin login option they are taken to a page with a form to login. Information the user provides:
+* Create a seating chart and load the initial reservations
+*  Display the main menu that asks the user whether they want to reserve a seat or log in as an administrator
+*  If the user selects the admin login option they are taken to a page with a form to login. Information the user provides:
 admin username
 admin password
-D. If the user successfully logs in a seating chart is displayed along with the total sales collected.
-E. If the user selects the the reservation option they are taken to a page with a form to reserve a seat. Information the user provides
+* If the user successfully logs in a seating chart is displayed along with the total sales collected.
+* If the user selects the the reservation option they are taken to a page with a form to reserve a seat. Information the user provides
 first name
 last name
 seat row
 seat column
-F. Display a flight chart
-G. Calculate and get the total sales for the flight when the user successfully logs in as an admin
-H. Create and print a reservation code for the user when the user successfully makes a reservation
-I. Insert the reservation into the reservations table in the reservations SQLite database
-J. Each page should have a link to the main option page.
+* Display a flight chart
+* Calculate and get the total sales for the flight when the user successfully logs in as an admin
+* Create and print a reservation code for the user when the user successfully makes a reservation
+* Insert the reservation into the reservations table in the reservations SQLite database
+* Each page should have a link to the main option page.
