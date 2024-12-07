@@ -9,6 +9,9 @@
         .menu {
             display: flex;
             justify-content: flex-start;
+            align-self: flex-start;
+            width: 2000px;
+            height:max-content;
         }
         h1 {
             font: bold;
@@ -18,9 +21,15 @@
         body {
             display: flex;
             justify-content: center;
-            align-items: center;
+            flex-direction: column;
         }
-
+        div {
+            width: 500px;
+            background-color: lightgray;
+            padding: 5px;
+            border: 1px solid #090909;
+            align-self: center;
+        }
   
         .container {
             width: 500px;
@@ -30,12 +39,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            align-self: center;
         }
         .matrix {
             font-family: monospace;
             font-size: 10px;
             margin-bottom: 2px;
             margin-top: 2px;
+            align-self: flex-start;
+            width:250px;
         }
         .error {
             color: red; /* Make error messages red */
